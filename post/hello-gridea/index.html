@@ -9,15 +9,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://960508.xyz//favicon.ico?v=1561295928569">
+<link rel="shortcut icon" href="http://960508.xyz//favicon.ico?v=1561296165975">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="http://960508.xyz//styles/main.css">
 
 
   
-
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
   
-    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+
   
 
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="http://960508.xyz/">
-        <img src="http://960508.xyz//images/avatar.png?v=1561295928569" class="site-logo">
+        <img src="http://960508.xyz//images/avatar.png?v=1561296165975" class="site-logo">
         <h1 class="site-title">逆旅</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -149,9 +149,9 @@
 
             
               
-
+                <div id="gitalk-container" data-aos="fade-in"></div>
               
-                <div id="disqus_thread" data-aos="fade-in"></div>
+
               
             
 
@@ -181,21 +181,24 @@ var app = new Vue({
 
 
   
-
-  
-    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
 
-    var options = {
-      shortname: '960508-xyz',
-      apikey: 'DheuFMGg8Fdl1xzSVwrDoPZKfs4Bax5tVOapp8b0jvcMZTETb6IXLETpjPXj5y0R',
-    }
-    if ('') {
-      options.api = ''
-    }
-    var dsqjs = new DisqusJS(options)
+      var gitalk = new Gitalk({
+        clientID: '100b040aaf919854f3b0',
+        clientSecret: '56095002d9a809514faaa606e16bbc917276de58',
+        repo: 'https://lyzpyb.github.io',
+        owner: 'lyzpyb',
+        admin: ['lyzpyb'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
   
 
 
